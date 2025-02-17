@@ -1,28 +1,50 @@
 'use client'
 
-import { useState, useRef, useEffect, use } from 'react'
+import { useState, useRef, useEffect} from 'react'
 import { universities } from '@/data/universities'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from 'next/image'
-import { CheckCircle, MapPin, GraduationCap, Award, Book, Clock, Download, MessageCircle, Plus, ArrowRight, Phone, FileText, Calendar, IndianRupee } from 'lucide-react'
+import {MapPin, GraduationCap, Award, Book, Clock, MessageCircle, ArrowRight, Phone, FileText, Calendar, IndianRupee } from 'lucide-react'
 import Link from 'next/link'
-import { Users, FileCheck, PiggyBank, Users2, Building2, Star, Shield, Trophy } from 'lucide-react';
+import { Users, FileCheck, PiggyBank, Users2, Building2, Star } from 'lucide-react';
 import { CircleDot, Send, Wallet, CheckCircle2 } from 'lucide-react'
-import { Briefcase, Globe2, ChevronDown, BookOpen, Laptop, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Briefcase, Globe2, Laptop} from 'lucide-react'
 
 export default function UniversityDetailPage({ params }: { params: { id: string }}) {
 
   const university = universities.find(uni => uni.id === params.id)
   const [activeImage, setActiveImage] = useState(0)
+  const navRef = useRef<HTMLDivElement>(null);
+  const [activeNavItem, setActiveNavItem] = useState(1);
   
     useEffect(()=>{
   window.scrollTo(0,0);
 },[])
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (navRef.current) {
+      const scrollPosition = navRef.current.scrollLeft
+      const itemWidth = navRef.current.querySelector('button')?.offsetWidth || 0
+      const activeIndex = Math.round(scrollPosition / itemWidth)
+      setActiveNavItem(activeIndex)
+    }
+  }
+
+  if (navRef.current) {
+    navRef.current.addEventListener('scroll', handleScroll)
+  }
+
+  return () => {
+    if (navRef.current) {
+      navRef.current.removeEventListener('scroll', handleScroll)
+    }
+  }
+}, [])
 
   if (!university) {
     return <div>University not found</div>
@@ -36,38 +58,6 @@ export default function UniversityDetailPage({ params }: { params: { id: string 
   ]
 
   const navItems = ['About', 'Courses', 'EMI', 'Benefits', 'Exam', 'Approvals', 'Placement', 'Degree', 'Admission', 'FAQs']
-  const navRef = useRef<HTMLDivElement>(null)
-  const [activeNavItem, setActiveNavItem] = useState(1)
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (navRef.current) {
-        const scrollPosition = navRef.current.scrollLeft
-        const itemWidth = navRef.current.querySelector('button')?.offsetWidth || 0
-        const activeIndex = Math.round(scrollPosition / itemWidth)
-        setActiveNavItem(activeIndex)
-      }
-    }
-
-    if (navRef.current) {
-      navRef.current.addEventListener('scroll', handleScroll)
-    }
-
-    return () => {
-      if (navRef.current) {
-        navRef.current.removeEventListener('scroll', handleScroll)
-      }
-    }
-  }, [])
-
-  const colorClasses = {
-    blue: "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400",
-    purple: "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400",
-    pink: "bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400",
-    green: "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400",
-    teal: "bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400",
-  }
   
 
   return (
@@ -91,7 +81,7 @@ export default function UniversityDetailPage({ params }: { params: { id: string 
         </div>
 
         <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 lg:gap-6">
-          {university.approvals?.slice(0, 5).map((approval, index) => (
+          {university.approvals?.slice(0, 5).map((approval) => (
             <div
               key={university.id}
               className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 md:px-4 md:py-2"
@@ -628,7 +618,7 @@ export default function UniversityDetailPage({ params }: { params: { id: string 
                         More Than Just A Degree
                       </h2>
                       <p className="text-lg text-gray-600 dark:text-gray-400">
-                        Our degrees open doors to opportunities. Here's what makes our programs stand out:
+                        Our degrees open doors to opportunities. Here&lsquo;s what makes our programs stand out:
                       </p>
                     </div>
 
@@ -857,7 +847,7 @@ export default function UniversityDetailPage({ params }: { params: { id: string 
 
               <div className="mt-8 text-center">
                 <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4">
-                  Still have questions? We're here to help!
+                  Still have questions? We&lsquo;re here to help!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button

@@ -74,7 +74,7 @@ export default function DisclaimerPage() {
             </CardHeader>
             <CardContent className="text-gray-700 dark:text-gray-300 space-y-4">
               <p>
-                The information on this website is provided on an "as is" basis. To the fullest extent permitted by law, Career Sarathi excludes all representations and warranties relating to this website and its contents or which is or may be provided by any affiliates or any other third party, including in relation to any inaccuracies or omissions in this website and/or Career Sarathi's literature.
+                The information on this website is provided on an &quot;as is&quot; basis. To the fullest extent permitted by law, Career Sarathi excludes all representations and warranties relating to this website and its contents or which is or may be provided by any affiliates or any other third party, including in relation to any inaccuracies or omissions in this website and/or Career Sarathi&lsquo;s literature.
               </p>
               <p>
                 We reserve the right to update or change our disclaimer at any time. Your continued use of the service after we post any modifications to the disclaimer on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified disclaimer.

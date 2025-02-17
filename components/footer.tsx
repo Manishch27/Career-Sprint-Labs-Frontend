@@ -2,7 +2,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Facebook, Youtube, Twitter, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import logo from "@/public/Sarthi.png"
 
 
@@ -16,13 +15,13 @@ const universities = [
   "Swami Vivekanand Subharti University"
 ]
 
-const distanceCourses = [
-  "BA Distance Education", "BBA Distance Education", "BCA Distance Education",
-  "BCOM Distance Education", "BLIS Distance Education", "BJMC Distance Education",
-  "BSC Distance Education", "MA Distance Education", "MBA Distance Education",
-  "MCA Distance Education", "MCOM Distance Education", "MLIS Distance Education",
-  "MSC Distance Education", "MJMC Distance Education"
-]
+// const distanceCourses = [
+//   "BA Distance Education", "BBA Distance Education", "BCA Distance Education",
+//   "BCOM Distance Education", "BLIS Distance Education", "BJMC Distance Education",
+//   "BSC Distance Education", "MA Distance Education", "MBA Distance Education",
+//   "MCA Distance Education", "MCOM Distance Education", "MLIS Distance Education",
+//   "MSC Distance Education", "MJMC Distance Education"
+// ]
 
 const onlineCourses = [
   "Online MBA Course", "Online MCA Course", "Online MCOM Course",

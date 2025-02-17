@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { constructMetadata } from '@/lib/metadata'
 import { Shield, CheckCircle, FileText, Users, Bell, Scale } from 'lucide-react'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = constructMetadata({
@@ -31,7 +31,7 @@ export default function TermsAndConditionsPage() {
             </CardHeader>
             <CardContent className="text-gray-700 dark:text-gray-300 space-y-4">
               <p>
-                By accessing and using Career Sarathi's website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.
+                By accessing and using Career Sarathi&apos;s website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.
               </p>
             </CardContent>
           </Card>
@@ -101,7 +101,7 @@ export default function TermsAndConditionsPage() {
             </CardHeader>
             <CardContent className="text-gray-700 dark:text-gray-300 space-y-4">
               <p>
-                We reserve the right to modify these terms at any time. We will notify users of any changes by updating the "Last Updated" date of these terms.
+                We reserve the right to modify these terms at any time. We will notify users of any changes by updating the &quot;Last Updated&quot; date of these terms.
               </p>
             </CardContent>
           </Card>
@@ -116,4 +116,3 @@ export default function TermsAndConditionsPage() {
     </div>
   )
 }
-

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
   Dialog,
   DialogContent,
@@ -12,23 +12,30 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/components/ui/dialog"
-import { GraduationCap, Send, Loader2 } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import { universities } from "@/data/universities"
-import { useForm, Controller } from "react-hook-form"
-import { useRouter, usePathname } from "next/navigation"
-import toast from "react-hot-toast"
-import axios from "axios"
+} from "@/components/ui/dialog";
+import { GraduationCap, Send, Loader2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { universities } from "@/data/universities";
+import { useForm, Controller } from "react-hook-form";
+import { usePathname } from "next/navigation";
+import toast from "react-hot-toast";
+import axios from "axios";
+
+// Define the form data structure
+interface FormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  preferredCourse: string;
+}
 
 export function PopupForm() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [hasSubmitted, setHasSubmitted] = useState(false)
-  const [courses, setCourses] = useState<string[]>([])
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [courses, setCourses] = useState<string[]>([]);
 
-  const router = useRouter()
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const {
     control,
@@ -36,55 +43,44 @@ export function PopupForm() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm()
+  } = useForm<FormData>();
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL
-  console.log(API_URL);
-  const onSubmit = async (data: any) => {
-    setIsSubmitting(true)
+  // Submit function with proper type
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
     try {
-      const response = await axios.post(`${API_URL}`, data)
+      const response = await axios.post(`${API_URL}`, data);
 
       if (response.status === 200) {
-        toast.success("Booking request submitted successfully!")
-        setHasSubmitted(true)
-        localStorage.setItem("hasSeenBookingDialog", "true")
-        setIsOpen(false)
-        reset()
+        toast.success("Booking request submitted successfully!");
+        localStorage.setItem("hasSeenBookingDialog", "true");
+        setIsOpen(false);
+        reset();
       } else {
-        toast.error(`Failed to submit booking. Server responded with status: ${response.status}`)
+        toast.error(`Failed to submit booking. Server responded with status: ${response.status}`);
       }
-    } catch (error: any) {
-      console.error("Error submitting booking:", error)
-
-      if (error.response) {
-        toast.error(`Server Error: ${error.response.status} - ${error.response.data.message || "Unexpected error"}`)
-      } else if (error.request) {
-        toast.error("Network error: No response from server. Please check your internet connection.")
-      } else {
-        toast.error("An unexpected error occurred. Please try again.")
-      }
+    } catch (error) {
+      console.error("Error submitting booking:", error);
+      toast.error("An unexpected error occurred. Please try again.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   useEffect(() => {
-    const hasSubmitted = localStorage.getItem("popupFormSubmitted")
+    const hasSubmitted = localStorage.getItem("popupFormSubmitted");
     if (!hasSubmitted) {
       const timer = setTimeout(() => {
-        setIsOpen(true)
-      }, 3000)
-      return () => clearTimeout(timer)
+        setIsOpen(true);
+      }, 3000);
+      return () => clearTimeout(timer);
     }
-  }, [pathname]) // ✅ Used stored `pathname`
+  }, [pathname]);
 
   useEffect(() => {
-    const courseOptions = Array.from(
-      new Set(universities.flatMap((uni) => uni.courses.map((course) => course.program)))
-    )
-    setCourses(courseOptions)
-  }, [])
+    const courseOptions = Array.from(new Set(universities.flatMap((uni) => uni.courses.map((course) => course.program))));
+    setCourses(courseOptions);
+  }, []);
 
   return (
     <AnimatePresence>
@@ -110,16 +106,19 @@ export function PopupForm() {
                 </div>
               </DialogHeader>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 px-4 py-2 sm:px-6 sm:py-4">
+                {/* Full Name Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-white">Full Name</Label>
+                  <Label htmlFor="fullName" className="text-white">Full Name</Label>
                   <Input
-                    id="name"
+                    id="fullName"
                     placeholder="Enter your full name"
                     {...register("fullName", { required: "Name is required" })}
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
                   />
-                  {errors.name && <p className="text-red-300 text-sm">{errors.name.message as string}</p>}
+                  {errors.fullName && <p className="text-red-300 text-sm">{errors.fullName.message}</p>}
                 </div>
+
+                {/* Email Field */}
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-white">Email</Label>
                   <Input
@@ -135,8 +134,10 @@ export function PopupForm() {
                     })}
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
                   />
-                  {errors.email && <p className="text-red-300 text-sm">{errors.email.message as string}</p>}
+                  {errors.email && <p className="text-red-300 text-sm">{errors.email.message}</p>}
                 </div>
+
+                {/* Phone Number Field */}
                 <div className="space-y-2">
                   <Label htmlFor="phone" className="text-white">Phone Number</Label>
                   <Input
@@ -146,10 +147,12 @@ export function PopupForm() {
                     {...register("phone", { required: "Phone number is required" })}
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
                   />
-                  {errors.phone && <p className="text-red-300 text-sm">{errors.phone.message as string}</p>}
+                  {errors.phone && <p className="text-red-300 text-sm">{errors.phone.message}</p>}
                 </div>
+
+                {/* Course Selection */}
                 <div className="space-y-2">
-                  <Label htmlFor="studyLevel" className="text-white">Preferred Course</Label>
+                  <Label htmlFor="preferredCourse" className="text-white">Preferred Course</Label>
                   <Controller
                     name="preferredCourse"
                     control={control}
@@ -169,8 +172,10 @@ export function PopupForm() {
                       </Select>
                     )}
                   />
-                  {errors.studyLevel && <p className="text-red-300 text-sm">{errors.studyLevel.message as string}</p>}
+                  {errors.preferredCourse && <p className="text-red-300 text-sm">{errors.preferredCourse.message}</p>}
                 </div>
+
+                {/* Submit Button */}
                 <DialogFooter className="sm:px-6 py-4">
                   <Button type="submit" className="w-full bg-white text-blue-600 hover:bg-blue-50" disabled={isSubmitting}>
                     {isSubmitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...</> : <><Send className="w-4 h-4 mr-2" /> Get Expert Guidance</>}
@@ -182,5 +187,5 @@ export function PopupForm() {
         </Dialog>
       )}
     </AnimatePresence>
-  )
+  );
 }

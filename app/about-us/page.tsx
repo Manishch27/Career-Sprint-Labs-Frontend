@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Building2, Users, GraduationCap, BookOpen, ArrowRight, Star, Globe, Award, Zap } from "lucide-react"
+import { Building2, Users, GraduationCap, BookOpen, ArrowRight, Star, Globe, Award} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { constructMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = constructMetadata({
@@ -203,13 +202,13 @@ export default function AboutUsPage() {
 
             <div className="space-y-6 text-gray-700 dark:text-gray-300">
               <p>
-                The School of Online & Distance Education (SODE) is the cornerstone of Career Sarathi's mission.
+                The School of Online & Distance Education (SODE) is the cornerstone of Career Sarathi&apos;s mission.
                 Established in 2007, SODE has been at the forefront of connecting aspiring students and working
                 professionals with top-tier distance education universities across India.
               </p>
               <p>
                 Our platform offers a diverse array of professional undergraduate and postgraduate courses, all
-                accessible through online learning. With SODE, we've helped thousands of students chart their path to a
+                accessible through online learning. With SODE, we&rsquo;ve helped thousands of students chart their path to a
                 successful career, bridging the gap between ambition and opportunity.
               </p>
             </div>
@@ -291,8 +290,8 @@ export default function AboutUsPage() {
             <div className="relative z-10">
               <h2 className="text-3xl font-bold mb-8 text-center">What Our Students Say</h2>
               <blockquote className="text-xl italic text-center mb-4">
-                "Career Sarathi transformed my educational journey. Their expert guidance helped me find the perfect
-                online program, and now I'm well on my way to achieving my career goals."
+              &quot;Career Sarathi transformed my educational journey. Their expert guidance helped me find the perfect
+                online program, and now I&#39;m well on my way to achieving my career goals.&quot;
               </blockquote>
               <div className="flex items-center justify-center">
                 <Image

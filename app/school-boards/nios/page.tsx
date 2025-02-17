@@ -4,7 +4,7 @@ import { constructMetadata } from '@/lib/metadata'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, BookOpen, Users, GraduationCap, FileText, Globe, ArrowRight, Star } from 'lucide-react'
+import { CheckCircle, BookOpen, Users, GraduationCap, FileText, Globe, ArrowRight} from 'lucide-react'
 
 export const metadata: Metadata = constructMetadata({
   title: 'NIOS - The National Institute of Open Schooling | Career Sarathi',
@@ -25,7 +25,7 @@ export default function NIOSPage() {
                 Open Education for All
               </h1>
               <p className="text-xl mb-6 text-green-100">
-                Explore India's largest open schooling system with the National Institute of Open Schooling (NIOS)
+                Explore India&apos;s largest open schooling system with the National Institute of Open Schooling (NIOS)
               </p>
               <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">
                 Discover Courses <ArrowRight className="ml-2 h-5 w-5" />
@@ -112,7 +112,7 @@ export default function NIOSPage() {
               <Image src="/images/nios-student-avatar.jpg" alt="NIOS Student" width={80} height={80} />
             </div>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-              "NIOS has been a game-changer for me. As a working professional, I could complete my senior secondary education without compromising my job. The course material is excellent, and the support from NIOS has been outstanding."
+            &quot;NIOS has been a game-changer for me. As a working professional, I could complete my senior secondary education without compromising my job. The course material is excellent, and the support from NIOS has been outstanding.&quot;
             </p>
             <p className="font-semibold text-green-600 dark:text-green-400">Priya Patel</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">Senior Secondary Graduate</p>

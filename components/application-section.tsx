@@ -29,7 +29,7 @@ export function ApplicationSection() {
     setCourses(courseOptions)
   }, [])
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: string) => {
     setIsSubmitting(true)
     try {
       // Simulate API call

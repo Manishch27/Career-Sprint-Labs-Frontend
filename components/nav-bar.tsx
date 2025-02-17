@@ -11,7 +11,6 @@ import { UniversitiesDropdown } from './universities-dropdown'
 import { CoursesDropdown } from './courses-dropdown'
 import { SchoolBoardsDropdown } from './school-boards-dropdown'
 import { MobileNav } from './mobile-nav'
-import { UserButton } from './user-button'
 import logo from "@/public/Sarthi.png"
 
 export function NavBar() {
@@ -19,9 +18,9 @@ export function NavBar() {
 
   return (
     <nav className="w-full py-4 px-4 bg-background z-50 shadow-sm">
-      <div className="lg:px-16 px-4 flex items-center justify-between">
-      <Link href="/" className="flex items-center">
-          <Image src={logo} alt="Career Sarathi logo" className="sm:w-full lg:h-16" priority />
+      <div className="lg:px-14 px-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center">
+          <img src="https://www.careersarathi.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FSarthi.55a14cb5.png&w=3840&q=75" alt="Career Sarathi logo" className="h-12 lg:h-16" />
         </Link>
 
         <div className="hidden lg:flex items-center space-x-8">

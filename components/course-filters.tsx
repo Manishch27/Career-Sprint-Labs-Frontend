@@ -51,10 +51,8 @@ function FilterSection({ title, options, selected, onChange }: FilterSectionProp
   )
 }
 
-export function CourseFilters({ 
-  course,
+export function CourseFilters({
   selectedModes,
-  selectedFees,
   onModeChange,
   onFeeChange,
 }: {

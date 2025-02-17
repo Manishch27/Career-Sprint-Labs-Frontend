@@ -1,15 +1,22 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react"
-import { useForm } from "react-hook-form"
-import toast from "react-hot-toast"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent } from "@/components/ui/card"
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
+
+// Define TypeScript interface for form data
+interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export default function ContactUsPage() {
   const {
@@ -17,25 +24,25 @@ export default function ContactUsPage() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm()
+  } = useForm<ContactFormData>(); // Use the defined interface
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async (data: any) => {
-    setIsSubmitting(true)
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
     try {
       // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      console.log("Form submitted:", data)
-      toast.success("Message sent successfully!")
-      reset()
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      console.log("Form submitted:", data);
+      toast.success("Message sent successfully!");
+      reset();
     } catch (error) {
-      console.error("Form submission error:", error)
-      toast.error("An error occurred. Please try again.")
+      console.error("Form submission error:", error);
+      toast.error("An error occurred. Please try again.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
@@ -112,7 +119,7 @@ export default function ContactUsPage() {
                         className="w-full mt-1"
                         placeholder="Your full name"
                       />
-                      {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message as string}</p>}
+                      {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
                     </div>
                     <div>
                       <Label htmlFor="email" className="text-gray-700 dark:text-gray-300">
@@ -131,7 +138,7 @@ export default function ContactUsPage() {
                         className="w-full mt-1"
                         placeholder="Your email address"
                       />
-                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message as string}</p>}
+                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                     </div>
                     <div>
                       <Label htmlFor="message" className="text-gray-700 dark:text-gray-300">
@@ -144,9 +151,7 @@ export default function ContactUsPage() {
                         rows={4}
                         placeholder="Your message"
                       />
-                      {errors.message && (
-                        <p className="text-red-500 text-sm mt-1">{errors.message.message as string}</p>
-                      )}
+                      {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
                     </div>
                     <Button type="submit" className="w-full" disabled={isSubmitting}>
                       {isSubmitting ? (
@@ -169,6 +174,5 @@ export default function ContactUsPage() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
-

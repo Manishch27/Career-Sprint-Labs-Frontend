@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { University } from '@/types/university';
 import { cn } from '@/lib/utils';
-import { MapPin, Award, GraduationCap, CheckCircle, Plus, Minus } from 'lucide-react';
+import { MapPin, GraduationCap, CheckCircle, Plus, Minus } from 'lucide-react';
 
 interface UniversityCardProps {
   university: University;

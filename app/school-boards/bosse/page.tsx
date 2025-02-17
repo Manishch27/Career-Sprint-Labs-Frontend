@@ -4,7 +4,7 @@ import { constructMetadata } from '@/lib/metadata'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, BookOpen, Users, GraduationCap, FileText, ArrowRight, Star } from 'lucide-react'
+import { CheckCircle, BookOpen, Users, GraduationCap, FileText, ArrowRight} from 'lucide-react'
 
 export const metadata: Metadata = constructMetadata({
   title: 'BOSSE - Board Of Open Schooling & Skill Education | Career Sarathi',
@@ -109,7 +109,7 @@ export default function BOSSEPage() {
               <Image src="/images/student-avatar.jpg" alt="Student" width={80} height={80} />
             </div>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-              "BOSSE has given me the flexibility to continue my education while working. The curriculum is comprehensive and the support from teachers is excellent. I'm grateful for this opportunity to learn and grow."
+            &quot;BOSSE has given me the flexibility to continue my education while working. The curriculum is comprehensive and the support from teachers is excellent. I&lsquo;m grateful for this opportunity to learn and grow.&quot;
             </p>
             <p className="font-semibold text-blue-600 dark:text-blue-400">Rahul Sharma</p>
             <p className="text-sm text-gray-600 dark:text-gray-400">Senior Secondary Student</p>

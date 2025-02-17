@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { GraduationCap, BookOpen, Briefcase, Code, Calculator, Newspaper, PenTool, FlaskRoundIcon as Flask, Building2, ScrollText, Award, LibraryBig, BadgeIcon as Certificate, School, Lightbulb } from 'lucide-react'
+import {BookOpen, Briefcase, Code, Calculator, Newspaper, PenTool, FlaskRoundIcon as Flask, Building2, ScrollText, Award, LibraryBig, BadgeIcon as Certificate, School, Lightbulb } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 
 const courses = [

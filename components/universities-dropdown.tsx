@@ -3,10 +3,22 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Input } from "@/components/ui/input"
-import { Search, GraduationCap, BookOpen, Award, TrendingUp, Star, Building, FileText, Users, ChevronRight } from 'lucide-react'
+import { Search, GraduationCap, BookOpen, Award, TrendingUp, Star, Building, FileText, Users, ChevronRight, LucideIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-const categories = [
+interface UniversityItem {
+  name: string;
+  href: string;
+  icon: LucideIcon;
+}
+
+interface Category {
+  title: string;
+  icon: LucideIcon;
+  items: UniversityItem[];
+}
+
+const categories: Category[] = [
   {
     title: "Explore Universities",
     icon: GraduationCap,
@@ -46,8 +58,8 @@ const categories = [
 ]
 
 export function UniversitiesDropdown() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState<Array<{ name: string; href: string; icon: any }>>([])
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const [searchResults, setSearchResults] = useState<UniversityItem[]>([])
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
@@ -126,24 +138,22 @@ export function UniversitiesDropdown() {
                 {category.title}
               </h3>
               <ul className="space-y-3">
-                {category.items.map((item, itemIndex) => (
-                  <motion.li 
-                    key={itemIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (index * 0.2) + (itemIndex * 0.1) }}
-                  >
-                    <Link
-                      href={item.href}
-                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center group"
+                {category.items.map((item, itemIndex) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <motion.li 
+                      key={itemIndex}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: (index * 0.2) + (itemIndex * 0.1) }}
                     >
-                      <item.icon className="w-5 h-5 mr-2 text-blue-500 dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
-                      <span className="group-hover:translate-x-1 transition-transform">
-                        {item.name}
-                      </span>
-                    </Link>
-                  </motion.li>
-                ))}
+                      <Link href={item.href} className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center">
+                        <IconComponent className="w-5 h-5 mr-2 text-blue-500 dark:text-blue-400" />
+                        <span>{item.name}</span>
+                      </Link>
+                    </motion.li>
+                  );
+                })}
               </ul>
             </motion.div>
           ))}
@@ -152,4 +162,3 @@ export function UniversitiesDropdown() {
     </div>
   )
 }
-

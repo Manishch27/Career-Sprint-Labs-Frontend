@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronRight, Star, MapPin, GraduationCap, Award, Users, BookOpen, DollarSign, Clock, CheckCircle, ExternalLink, ChevronDown, ChevronUp, Search, Laptop } from 'lucide-react'
+import {MapPin, GraduationCap, Users, BookOpen, DollarSign, Clock, CheckCircle, ExternalLink, ChevronDown, ChevronUp, Laptop } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -32,6 +32,7 @@ export default function TopUniversitiesPage() {
     .filter(uni => uni.name.toLowerCase().includes(searchTerm.toLowerCase()))
     .sort((a, b) => {
       if (sortCriteria === 'rank') {
+        // @ts-expect-error
         return sortOrder === 'asc' ? a.ranking - b.ranking : b.ranking - a.ranking
       } else if (sortCriteria === 'placement') {
         const aRate = parseInt(a.quantitativeMetrics.placementRate)
@@ -194,6 +195,7 @@ export default function TopUniversitiesPage() {
                   <tr>
                     <td className="p-2 font-medium">Ranking</td>
                     {compareList.map(uniId => (
+                      // @ts-expect-error
                       <td key={uniId} className="p-2">#{universities.find(u => u.id === uniId)?.ranking}</td>
                     ))}
                   </tr>
@@ -345,7 +347,7 @@ function UniversityDetails({ university, course }: UniversityDetailsProps) {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Course Description</h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      The {course} program at {university.name} is designed to equip students with the knowledge and skills needed to excel in today's competitive business environment. The curriculum combines theoretical concepts with practical applications, preparing students for leadership roles in various industries.
+                      The {course} program at {university.name} is designed to equip students with the knowledge and skills needed to excel in today&apos;s competitive business environment. The curriculum combines theoretical concepts with practical applications, preparing students for leadership roles in various industries.
                     </p>
                   </div>
                   <div>

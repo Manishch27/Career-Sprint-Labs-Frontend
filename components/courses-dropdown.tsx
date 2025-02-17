@@ -3,10 +3,22 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Input } from "@/components/ui/input"
-import { Search, BookOpen, Laptop, FileText, Briefcase, GraduationCap, Users, ChevronRight } from 'lucide-react'
+import { Search, BookOpen, Laptop, FileText, Briefcase, GraduationCap, Users, ChevronRight, LucideIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-const categories = [
+interface CourseItem {
+  name: string;
+  href: string;
+  icon: LucideIcon;
+}
+
+interface Category {
+  title: string;
+  icon: LucideIcon;
+  items: CourseItem[];
+}
+
+const categories: Category[] = [
   {
     title: "Management",
     icon: Briefcase,
@@ -46,8 +58,8 @@ const categories = [
 ]
 
 export function CoursesDropdown() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState<Array<{ name: string; href: string; icon: any }>>([])
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const [searchResults, setSearchResults] = useState<CourseItem[]>([])
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
@@ -133,14 +145,9 @@ export function CoursesDropdown() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: (index * 0.2) + (itemIndex * 0.1) }}
                   >
-                    <Link
-                      href={item.href}
-                      className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors flex items-center group"
-                    >
-                      <item.icon className="w-5 h-5 mr-2 text-green-500 dark:text-green-400 group-hover:text-green-600 dark:group-hover:text-green-300 transition-colors" />
-                      <span className="group-hover:translate-x-1 transition-transform">
-                        {item.name}
-                      </span>
+                    <Link href={item.href} className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 flex items-center">
+                      <item.icon className="w-5 h-5 mr-2 text-green-500 dark:text-green-400" />
+                      <span>{item.name}</span>
                     </Link>
                   </motion.li>
                 ))}
@@ -152,4 +159,3 @@ export function CoursesDropdown() {
     </div>
   )
 }
-
