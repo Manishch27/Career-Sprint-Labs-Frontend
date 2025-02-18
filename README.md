@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Here's the updated **README.md** file including **React Hook Form** for form handling:  
 
-## Getting Started
+---
 
-First, run the development server:
+## Live Demo
+🔗 [Career Sprint Labs - Live Website](https://www.careersarathi.com/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+```markdown
+# Career Sprint Labs – Education Consultancy Website
+
+## Overview
+Career Sprint Labs is a fully responsive and interactive education consultancy website designed to help students explore programs, submit inquiries, and receive guidance from consultants. The project focuses on high performance, user experience, and efficient form submission handling.
+
+## Features
+- 🌐 **Modern UI:** Built with ShadCN UI and Tailwind CSS for a sleek and user-friendly experience.
+- 🚀 **High Performance:** Optimized using **lazy loading, useMemo, and other performance techniques** to enhance speed and efficiency.
+- 📧 **Secure Form Submission:** Uses **Nodemailer with Express.js** to send inquiries via email.
+- 📑 **Efficient Form Handling:** Utilizes **React Hook Form** for validation and better performance.
+- 📱 **Fully Responsive:** Works seamlessly across desktops, tablets, and mobile devices.
+- 🔥 **Fast & Interactive:** Next.js with TypeScript ensures smooth navigation and better SEO.
+
+## Technologies Used
+### **Frontend:**
+- **Next.js** – For server-side rendering and optimized performance.
+- **TypeScript** – Ensuring type safety and scalability.
+- **ShadCN UI** – Providing a modern and accessible component library.
+- **Tailwind CSS** – For styling and maintaining design consistency.
+- **React Hook Form** – Managing form state and validation efficiently.
+
+### **Backend (Email Handling Only):**
+- **Node.js & Express.js** – Handling form submissions.
+- **Nodemailer** – Sending emails with inquiry details.
+
+## Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Manishch27/Career-Sprint-Labs-Frontend.git
+   cd Career-Sprint-Labs-Frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+   The website should now be accessible at `http://localhost:3000`.
+
+### Backend (Form Submission Handling)
+1. **Navigate to backend directory**
+   ```bash
+   cd Career-Sprint-Labs-Backend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the backend server**
+   ```bash
+   node index.js
+   ```
+   The backend should be running at `http://localhost:4000`.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
+The project can be deployed using **Vercel** for the frontend and **Heroku** for the backend.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributing
+Feel free to contribute by opening issues or pull requests. 🚀
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
+This project is licensed under the [MIT License](LICENSE).
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
