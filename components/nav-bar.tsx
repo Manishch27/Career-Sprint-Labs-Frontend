@@ -20,7 +20,7 @@ export function NavBar() {
     <nav className="w-full py-4 px-4 bg-background z-50 shadow-sm">
       <div className="lg:px-14 px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <img src="https://www.careersarathi.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FSarthi.55a14cb5.png&w=3840&q=75" alt="Career Sarathi logo" className="h-12 lg:h-16" />
+          <Image src={logo} alt="Career Sarathi logo" className="w-18 lg:w-44" />
         </Link>
 
         <div className="hidden lg:flex items-center space-x-8">
