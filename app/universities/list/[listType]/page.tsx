@@ -111,11 +111,6 @@ export default function UniversitiesList() {
                       UGC-DEB Approved
                     </Badge>
                   )}
-                  {uni.ranking && (
-                    <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100">
-                      NIRF Rank: {uni.ranking}
-                    </Badge>
-                  )}
                 </div>
                 <div className="mt-4 flex justify-between items-center">
                   <div className="flex items-center space-x-2">

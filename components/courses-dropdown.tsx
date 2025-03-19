@@ -43,18 +43,6 @@ const categories: Category[] = [
       { name: "Diploma in IT", href: "/courses/diploma-it", icon: FileText }
     ]
   },
-  {
-    title: "Resources",
-    icon: FileText,
-    items: [
-      { name: "Course Finder", href: "/courses/finder", icon: Search },
-      { name: "Career Counselling", href: "/career-counselling", icon: Users },
-      { name: "Compare Courses", href: "/courses/compare", icon: FileText },
-      { name: "Admission Process", href: "/courses/admission-process", icon: FileText },
-      { name: "Fee Structure", href: "/courses/fee-structure", icon: FileText },
-      { name: "FAQs", href: "/courses/faqs", icon: FileText }
-    ]
-  }
 ]
 
 export function CoursesDropdown() {
@@ -124,7 +112,7 @@ export function CoursesDropdown() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((category, index) => (
             <motion.div 
               key={index}

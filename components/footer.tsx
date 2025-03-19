@@ -113,11 +113,11 @@ export function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Phone className="w-5 h-5 mr-2 text-blue-400" />
-                <span>+91-1234567890</span>
+                <span><a href="tel:+919027717308">+91-9027717308</a></span>
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 mr-2 text-blue-400" />
-                <span>info@careersarathi.com</span>
+                <span><a href="mailto:info@careersaathi.com">info@careersaathi.com</a></span>
               </li>
               <li className="flex items-center">
                 <MapPin className="w-5 h-5 mr-2 text-blue-400" />

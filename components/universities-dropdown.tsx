@@ -25,7 +25,7 @@ const categories: Category[] = [
     items: [
       { name: "Top Online Universities", href: "/universities/online", icon: Building },
       { name: "UGC-DEB Approved", href: "/universities/list/ugc-deb-approved", icon: Award },
-      { name: "NAAC A+ Universities", href: "/universities/list/naac-aplus", icon: Star },
+      { name: "NAAC A+ Universities", href: "/universities/naac-aplus", icon: Star },
       { name: "NIRF Ranked Universities", href: "/universities/list/nirf-ranked", icon: TrendingUp },
       { name: "Distance Universities", href: "/universities/distance", icon: BookOpen },
       { name: "Private Universities", href: "/universities/private", icon: Building }
@@ -43,18 +43,6 @@ const categories: Category[] = [
       { name: "Jain University", href: "/universities/jain", icon: Building }
     ]
   },
-  {
-    title: "Resources",
-    icon: FileText,
-    items: [
-      { name: "Compare Universities", href: "/universities/compare", icon: Users },
-      { name: "University Rankings", href: "/universities/rankings", icon: TrendingUp },
-      { name: "Admission Calendar", href: "/universities/admission-calendar", icon: FileText },
-      { name: "Career Counselling", href: "/career-counselling", icon: Users },
-      { name: "Education Loan", href: "/education-loan", icon: FileText },
-      { name: "FAQs", href: "/universities/faqs", icon: FileText }
-    ]
-  }
 ]
 
 export function UniversitiesDropdown() {
@@ -124,7 +112,7 @@ export function UniversitiesDropdown() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((category, index) => (
             <motion.div 
               key={index}

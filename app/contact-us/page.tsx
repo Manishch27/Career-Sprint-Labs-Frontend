@@ -69,7 +69,7 @@ export default function ContactUsPage() {
                       </div>
                       <div>
                         <p className="font-medium">Phone</p>
-                        <p>+91-1234567890</p>
+                        <p><a href="tel:+919027717308">+91-9027717308</a></p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
@@ -78,7 +78,7 @@ export default function ContactUsPage() {
                       </div>
                       <div>
                         <p className="font-medium">Email</p>
-                        <p>info@careersaathi.com</p>
+                        <p><a href="mailto:info@careersaathi.com">info@careersaathi.com</a></p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
