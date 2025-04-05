@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
+import axios from "axios";
 
 export function ApplicationSection() {
   const {
@@ -22,6 +23,8 @@ export function ApplicationSection() {
   const [courses, setCourses] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
     const courseOptions = Array.from(
       new Set(universities.flatMap((uni) => uni.courses.map((course) => course.program))),
@@ -33,10 +36,12 @@ export function ApplicationSection() {
     setIsSubmitting(true)
     try {
       // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      console.log("Form submitted:", data)
+      const response = await axios.post(`${API_URL}`, data);
+
+      if(response.status === 200){
       toast.success("Application submitted successfully!")
       reset()
+      }
     } catch (error) {
       console.error("Form submission error:", error)
       toast.error("An error occurred. Please try again.")

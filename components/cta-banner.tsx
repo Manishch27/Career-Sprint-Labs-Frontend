@@ -19,7 +19,7 @@ export function CTABanner() {
             className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 h-14 rounded-full"
           >
             <Phone className="w-5 h-5 mr-2" />
-            Call Us Now
+           <a href="tel:+919027717308">Call Us Now</a>
           </Button>
         </div>
       </div>

@@ -74,7 +74,7 @@ export function UniversityCarousel() {
         <div className="relative overflow-hidden z-10">
           <div 
             ref={carouselRef}
-            className="flex"
+            className="flex w-full"
             style={{
               width: 'max-content',
               animation: 'scroll 60s linear infinite',

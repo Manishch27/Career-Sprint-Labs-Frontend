@@ -2959,6 +2959,184 @@ export const universities: University[] = [
       file: "file.pdf"
     }
   },
+
+
+
+  // Distance learning universities
+      
+      // Mangalaytan university
+
+  {
+    id: 'mangalayatan-university',
+    name: 'Mangalayatan University Distance',
+    logo: '/universities-logo/mangalayatan.webp?height=80&width=80',
+    image: '/universities-thumbs/mangalayatan.webp',
+    mode: 'Distance',
+    accreditation: {
+      grade: 'A+',
+      body: 'NAAC'
+    },
+
+    courses: [
+      {
+        program: "MBA",
+        degree: "Master Degree",
+        duration: "2 Years",
+        feesPerSemester: 40000,
+        brochure: "link-to-mba-brochure"
+      },
+      {
+        program: "MCA",
+        degree: "Master Degree",
+        duration: "2 Years",
+        feesPerSemester: 38000,
+        brochure: "link-to-mca-brochure"
+      },
+      {
+        program: "BBA",
+        degree: "Bachelor Degree",
+        duration: "3 Years",
+        feesPerSemester: 15500,
+        brochure: "link-to-bba-brochure"
+      },
+      {
+        program: "BCA",
+        degree: "Bachelor Degree",
+        duration: "3 Years",
+        feesPerSemester: 15500,
+        brochure: "link-to-bca-brochure"
+      },
+      {
+        program: "BA",
+        degree: "Bachelor Degree",
+        duration: "3 Years",
+        feesPerSemester: 4000,
+        brochure: "link-to-ba-brochure"
+      },
+      {
+        program: "MCOM",
+        degree: "Master Degree",
+        duration: "2 Years",
+        feesPerSemester: 9000,
+        brochure: "link-to-mcom-brochure"
+      },
+      {
+        program: "MSC",
+        degree: "Master Degree",
+        duration: "2 Years",
+        feesPerSemester: 12000,
+        brochure: "link-to-msc-brochure"
+      },
+      {
+        program: "MA",
+        degree: "Master Degree",
+        duration: "2 Years",
+        feesPerSemester: 8000,
+        brochure: "link-to-ma-brochure"
+      }
+    ],
+
+    location: {
+      city: 'Aligarh',
+      state: 'Uttar Pradesh'
+    },
+
+    approvals: [
+      { name: 'UGC-DEB', image: '/approvals-logo/ugc-deb.webp?height=100&width=100', description: 'University Grants Commission for Distance Education' },
+      { name: 'NAAC A+', image: '/approvals-logo/naac-A+.webp?height=100&width=100', description: 'National Assessment and Accreditation Council' },
+      { name: 'AIU', image: '/approvals-logo/aiu.webp?height=100&width=100', description: 'Association of Indian Universities' },
+    ],
+
+    about: "Mangalayatan University Online is committed to delivering high-quality education to students across the globe. Known for its innovative teaching methodologies and strong academic framework, the university offers a range of programs designed to meet the dynamic needs of students and professionals. Mangalayatan University leverages advanced technology to provide a seamless and engaging learning experience through live classes, recorded lectures, and interactive study materials. Its focus on holistic development and skill enhancement ensures that students are well-equipped to meet global challenges. The institution emphasizes experiential learning, real-world projects, and extensive support services, including career guidance and placement assistance, making it a trusted choice for online learners. With a vision to inspire and empower learners, Mangalayatan University Online continues to set benchmarks in quality education and academic excellence.",
+
+    keyHighlights: [
+      "Dynamic curriculum tailored to meet industry demands",
+      "Comprehensive online education tools for flexibility",
+      "Affordable fee structure and scholarship options",
+      "Global recognition and strong alumni network",
+      "Interactive virtual classrooms with expert faculty"
+    ],
+
+    emiOptions: "Affordable EMI options available to ease financial constraints for students.",
+    whyChoose: [
+      "Recognized for academic excellence and innovation",
+      "Programs aligned with professional and personal growth",
+      "Flexible learning schedule for working professionals",
+      "Strong placement network with leading companies",
+      "Dedicated student support and mentorship"
+    ],
+    benefitsOfStudying: [
+      "Access to world-class faculty and resources",
+      "Interactive live and recorded sessions",
+      "Career-oriented certifications and internships",
+      "Flexible learning environment to balance work and study",
+      "Regular assessments and feedback for continuous improvement"
+    ],
+    examConduct: "Examinations are conducted online using secure, AI-proctored systems ensuring integrity and convenience.",
+    accreditationsApprovals: ['UGC-DEB', 'NAAC A+', 'AIU'],
+    academicApproach: "Mangalayatan University Online integrates theoretical foundations with practical applications to nurture critical thinking, creativity, and problem-solving abilities.",
+    quantitativeMetrics: {
+      placementRate: "95%",
+      corporateTieups: "500+",
+      students: "75,000+",
+      experience: "15+ years"
+    },
+    placements: {
+      sectors: [
+        "Information Technology",
+        "Banking & Finance",
+        "Marketing & Sales",
+        "Education & Research",
+        "Healthcare & Wellness"
+      ],
+      images: [
+        "/companies-logo/icici-bank.webp",
+        "/companies-logo/amazon.webp",
+        "/companies-logo/infosys.webp",
+        "/companies-logo/genpact.webp",
+        "/companies-logo/dainik-jagran.webp",
+        "/companies-logo/radisson.webp",
+        "/companies-logo/capgemini.webp",
+        "/companies-logo/policybazaar.webp",
+      ]
+    },
+    moreThanDegree: {
+      description: "Mangalayatan University Online ensures a comprehensive learning experience, offering additional certifications, hands-on projects, and networking opportunities to help students excel beyond academics.",
+      sampleDegree: {
+        name: "MBA",
+        description: "The MBA program focuses on developing leadership, strategic thinking, and managerial skills for modern business challenges.",
+        image: '/sample-degrees/mangalayatan.webp'
+      }
+    },
+    admissionProcess: [
+      "Visit the Mangalayatan University Online website",
+      "Explore available programs and select the desired one",
+      "Complete the online application form",
+      "Submit necessary documents for verification",
+      "Pay the admission fee",
+      "Receive enrollment confirmation and start learning"
+    ],
+    faqs: [
+      {
+        question: "Is Mangalayatan University Online recognized internationally?",
+        answer: "Yes, it holds accreditations such as AIU, making its degrees globally valid."
+      },
+      {
+        question: "What support is provided for online learners?",
+        answer: "Students receive personalized mentorship, technical assistance, and career counseling throughout the course."
+      },
+      {
+        question: "What is the eligibility criteria for undergraduate programs?",
+        answer: "Candidates must have completed 10+2 or equivalent from a recognized board."
+      },
+      {
+        question: "Does Mangalayatan University offer scholarships?",
+        answer: "Yes, the university provides merit-based scholarships for eligible students."
+      }
+    ],
+    UniBrochure: {
+      file: "file.pdf"
+    }
+  },
   
   ]
-

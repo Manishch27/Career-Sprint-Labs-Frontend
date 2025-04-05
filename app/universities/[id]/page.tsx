@@ -19,7 +19,7 @@ export default function UniversityDetailPage({ params }: { params: { id: string 
   const university = universities.find(uni => uni.id === params.id)
   const [activeImage, setActiveImage] = useState(0)
   const navRef = useRef<HTMLDivElement>(null);
-  const [activeNavItem, setActiveNavItem] = useState(1);
+  const [activeNavItem, setActiveNavItem] = useState(0);
   
     useEffect(()=>{
   window.scrollTo(0,0);
@@ -57,7 +57,7 @@ useEffect(() => {
     '/placeholder.svg?height=400&width=600'
   ]
 
-  const navItems = ['About', 'Courses', 'EMI', 'Benefits', 'Exam', 'Approvals', 'Placement', 'Degree', 'Admission', 'FAQs']
+  const navItems = ['About', 'Courses', 'EMI', 'Benefits', 'Approvals', 'Placement', 'Degree', 'Admission', 'FAQs']
   
 
   return (
@@ -135,19 +135,63 @@ useEffect(() => {
 </div>
 
       {/* Sticky Horizontal Navigation Bar */}
-      <nav className="sticky top-0 z-40 bg-blue-600 text-white px-4 py-3 flex items-center justify-center overflow-x-auto">
-        <div className="flex justify-center gap-4 whitespace-nowrap" ref={navRef} aria-label="University Navigation">
+      <nav className="sticky top-0 z-40 bg-blue-600 text-white shadow-md transition-all duration-300 flex justify-center">
+        {/* Mobile view indicator arrows */}
+        <div className="md:hidden absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-blue-600 to-transparent z-10 flex items-center justify-start pl-2">
+          <div className="w-6 h-6 rounded-full bg-blue-700/70 flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </div>
+        </div>
+
+        <div className="md:hidden absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-blue-600 to-transparent z-10 flex items-center justify-end pr-2">
+          <div className="w-6 h-6 rounded-full bg-blue-700/70 flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Navigation items */}
+        <div
+          className="flex overflow-x-auto py-3 px-4 scrollbar-hide"
+          ref={navRef}
+          aria-label="University Navigation"
+          style={{
+            scrollBehavior: "smooth",
+            WebkitOverflowScrolling: "touch",
+            msOverflowStyle: "none",
+            scrollbarWidth: "none",
+          }}
+        >
           {navItems.map((item, index) => (
             <button
               key={index}
-              className={`px-4 py-2 rounded-md font-medium ${activeNavItem === index ? 'bg-yellow-400 text-blue-900' : 'hover:bg-yellow-200 hover:text-blue-900'}`}
-              aria-current={activeNavItem === index ? 'page' : undefined}
+              className={`px-4 py-2.5 rounded-md font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0 mr-3 last:mr-6 text-sm sm:text-base ${
+                activeNavItem === index
+                  ? "bg-yellow-400 text-blue-900 shadow-sm"
+                  : "bg-blue-700/30 hover:bg-blue-500/50"
+              }`}
+              aria-current={activeNavItem === index ? "page" : "false"}
               onClick={() => {
                 const element = document.getElementById(item.toLowerCase())
-                setActiveNavItem(index);
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' })
+                  element.scrollIntoView({ behavior: "smooth" })
                 }
+                setActiveNavItem(index)
               }}
             >
               {item}

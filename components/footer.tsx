@@ -43,11 +43,11 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 py-12 px-4">
       <div className="lg:px-16 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Social Section */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center">
-              <Image src={logo} alt="Career Sarathi logo" className="h-24"/>
+              <Image src={logo} alt="Career Sarathi logo" className="w-40 lg:w-52"/>
             </Link>
 
             <div className="flex space-x-4">
@@ -87,20 +87,6 @@ export function Footer() {
                 <li key={index}>
                   <Link href="#" className="text-sm hover:text-blue-400 transition-colors">
                     {uni}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Popular Courses Column */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Popular Courses</h3>
-            <ul className="space-y-2">
-              {onlineCourses.slice(0, 8).map((course, index) => (
-                <li key={index}>
-                  <Link href="#" className="text-sm hover:text-blue-400 transition-colors">
-                    {course}
                   </Link>
                 </li>
               ))}
