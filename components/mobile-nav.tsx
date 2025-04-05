@@ -28,7 +28,7 @@ const categories = [
   { name: "Online Universities", href: "/universities/online", icon: GraduationCap },
   { name: "Distance Universities", href: "/universities/distance", icon: BookOpen },
   { name: "UGC-DEB Approved", href: "/universities/list/ugc-deb-approved", icon: Award },
-  { name: "NAAC A+ Universities", href: "/universities/list/naac-aplus", icon: Star, isNew: true },
+  { name: "NAAC A+ Universities", href: "/universities/naac-aplus", icon: Star, isNew: true },
   { name: "NIRF Ranked", href: "/universities/list/nirf-ranked", icon: TrendingUp, isNew: true },
   { name: "Private Universities", href: "/universities/private", icon: Building },
 ]
